@@ -17,9 +17,10 @@ _w_progress_until()
   ## Arguments
   # - timeout - time out in seconds
   # - period - how often to run code
+  # - commands
   #
   ## Sample
-  # _w_progress_until 30 0.25 ssh server1
+  # _w_progress_until 30 0.25 ssh server1   - tries to connect to server1 with SSH every 0.25 seconds with timeout 30 seconds. Drows progress bar in persant command SSH has non-zero status
 
   local timeout=$1
   local period=$2
