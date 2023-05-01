@@ -14,8 +14,6 @@ _w_progress_until()
 
   ## Draw progress bar executing code passed in arguments while it returns false.
   #
-  ## Draw progress bar executing code passed in arguments while it returns false.
-  #
   ## Arguments
   # - timeout - time out in seconds
   # - period - how often to run code
