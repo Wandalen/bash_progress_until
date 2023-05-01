@@ -22,7 +22,7 @@ _w_progress()
   local visual_length && visual_length=${2:-40}
 
   percent=$(( $percent > 100 ? 100 : $percent ))
-  percent=$(( $percent < 0 ? 0 : $percent ))
+  percent=$(( $percent < 0 ? 0 : $percent ))       # variable $2 equal to default value 40 (if without $2)
 
   if (( $percent == 100 ))
   then
