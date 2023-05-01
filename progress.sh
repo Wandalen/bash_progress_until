@@ -10,13 +10,17 @@ _w_progress()
   # === begin of function _w_progress
 
   ## Draw progress bar. If percent is 100 progress bar erase itself.
-  #
+  # 
   ## Arguments
   # - percent - progress in percent
   # - visual_length - visual length in number of characters
   #
-  ## Sample
+  # Function _w_progress() gets two arguments (percent and length) and than drows how many persants is done
+  #
+  ## Samples
   # _w_progress $percent $visual_length
+  # _w_progress 50 100  - we wiil see line with total 100 characters and half (50 %) is done
+  # _w_progress 25 40  - we wiil see line with total 40 characters and quarter (25 %) is done
 
   local percent && percent=$1
   local visual_length && visual_length=${2:-40}
