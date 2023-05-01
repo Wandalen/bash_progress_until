@@ -11,8 +11,11 @@ _w_sleep()
 
   ## Sleep seconds. Argument in second with floating point
   #
+  #Function _w_sleep() get an argument (e.g., 3.2) with floating point and sleep for 3.2 seconds
+  #
   ## Sample
-  # _w_sleep 0.2
+  # _w_sleep 0.2    - sleep for 0.2 seconds
+  # _w_sleep 3.5    - sleep for 3.5 seconds 
 
   read -rt "$1" <> <(:) || :
 
