@@ -9,9 +9,15 @@ _w_sleep()
   set -o pipefail
 
   ## Sleep seconds. Argument in second with floating point
+  # Function _w_sleep() gets an argument "timeout" and sleeps for "timeout" seconds
+  # For pause used built-in command "read" tnat works faster than command "sleep"
   #
-  ## Sample
-  # _w_sleep 0.2
+  ## Arguments
+  # timeout - in seconds with float format
+  #
+  ## Samples
+  # _w_sleep 0.2   #  pause for 0.2 seconds
+  # _w_sleep 3.5   #  pause
 
   read -rt "$1" <> <(:) || :
 
