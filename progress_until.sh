@@ -48,9 +48,13 @@ _w_progress_until()
   while (( $err != 0 && $elapsed_time < $timeout ))
   do
 
-  _w_sleep $period
+  sleep_period = $period - $elapsed_time
+  if [ $sleep_period -gt 0 ]
+  then
+  _w_sleep $sleep_period
   # qqq2 : make argument $period proper
   # qqq2 : should return nonzero code if fail as well as print stdderr
+  fi
 
   now_time=$( date +%s )
   elapsed_time=$(( $now_time - $start_time ))
