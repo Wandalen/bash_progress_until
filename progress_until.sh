@@ -26,7 +26,7 @@ _w_progress_until()
   local period=$2
   shift 2
 
-  local output elapsed_time now_time err
+  local output elapsed_time now_time err sleep_period
   local start_time && start_time=$( date +%s )
 
   set +o errexit
@@ -35,38 +35,42 @@ _w_progress_until()
 
    _w_progress 0
   # eval "$@"
-  output=$( eval "$@" 2>/dev/null )    # read passed parameters of function _w_progress and nothing to output
+  output=$( eval "$@" 2>/dev/null )    
   err=$?
-  if [[ $err -eq 0 ]]     # if no errors
+  if [[ $err -eq 0 ]]     
   then
-  _w_progress 100         # run function _w_progress with his argument 100
-  printf "%s" "$output"   # print argumant _w_progress
+  _w_progress 100         
+  printf "%s" "$output"   
   return
   fi
 
   now_time=$( date +%s )
   elapsed_time=$(( $now_time - $start_time ))
 
-  while (( $err != 0 && $elapsed_time < $timeout ))     # while error and elapsed < timeout
+  while (( $err != 0 && $elapsed_time < $timeout ))     
   do
 
-  _w_sleep $period       # run function _w_sleep with $2 argument
+  sleep_period = $period - $elapsed_time
+  if [ $sleep_period -gt 0 ]
+  then
+  _w_sleep $sleep_period
   # qqq2 : make argument $period proper
   # qqq2 : should return nonzero code if fail as well as print stdderr
+  fi
 
   now_time=$( date +%s )
   elapsed_time=$(( $now_time - $start_time ))
-  _w_progress $(( 100 * $elapsed_time / $timeout ))   # calculate persent of elapsed time, run function _w_progress
-
+  _w_progress $(( 100 * $elapsed_time / $timeout ))   
+  
   # eval "$@"
-  output=$( eval "$@" 2>/dev/null )     # read passed parameters of function  _w_progress  and nothing to output
+  output=$( eval "$@" 2>/dev/null )     
 
   err=$?
 
   done
 
   _w_progress 100
-  printf "%s\n" "$output"               # print passed parameters of function _w_progress
+  printf "%s\n" "$output"               
   # === end of function _w_progress_until
 
 }
