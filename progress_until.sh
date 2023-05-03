@@ -72,3 +72,21 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]
 then
   _w_progress_until "$@"
 fi
+
+
+# Test Case for good function behavior
+#result=$(echo "Hello")
+#expected="Hello"
+#if [[ "${result}" == "${expected}" ]]
+#then echo "Test Case for good function behavior passed!"
+#else echo "Test failed!"
+#fi
+
+# Test Case for error function behavior
+#result=$(cat /1111/file.txt)
+#expected="cat: /1111/file.txt: No such file or directory"
+#if [[ "${result}" == "${expected}" ]]
+#then echo "Test Case for error function behavior passed!"
+#else echo "Test failed!"
+#fi
+
