@@ -57,7 +57,7 @@ _w_progress_until()
   _w_progress $(( 100 * $elapsed_time / $timeout ))
 
   # eval "$@"
-  output=$( eval "$@" 2>/dev/null )
+  output=$( eval "$@" )
   err=$?
 
   done
