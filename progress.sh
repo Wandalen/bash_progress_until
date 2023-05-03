@@ -7,8 +7,6 @@ _w_progress()
   set -o nounset
   set -o pipefail
 
-  # === begin of function _w_progress
-
   ## Draw progress bar. If percent is 100 progress bar erase itself.
   #
   ## Arguments
@@ -57,7 +55,6 @@ _w_progress()
   printf "%s\r" "${tick}${elapsed_str// /█}${remaining_str// /░}"
 
   fi
-    # === end of function _w_progress
 
 }
 

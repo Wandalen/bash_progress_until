@@ -1,6 +1,5 @@
 #!/bin/bash
 
-  # ===== begin aug of progress_until
 . ./progress.sh
 . ./sleep.sh
 
@@ -65,7 +64,6 @@ _w_progress_until()
 
   _w_progress 100
   printf "%s\n" "$output"
-  # === end of function _w_progress_until
 
 }
 

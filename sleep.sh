@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# ===== begin aug of sleep
 _w_sleep()
 {
 
