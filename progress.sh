@@ -8,6 +8,9 @@ _w_progress()
   set -o pipefail
 
   ## Draw progress bar. If percent is 100 progress bar erase itself.
+  # Function get two arguments (percent and visual_length) and draw progress bar.
+  # Argument visual_length set length of the bar in symbols. Default is 40 symbols
+  # Function _w_progress() can be used several times and create animation for progress  
   #
   ## Arguments
   # - percent - progress in percent
@@ -15,6 +18,9 @@ _w_progress()
   #
   ## Sample
   # _w_progress $percent $visual_length
+  # _w_progress 50 30   # draw bar witn 30 symbols length and 50% progress
+  # _w_progress 30 70   # draw bar witn 70 symbols length and 30% progress
+  # _w_progress 70      # draw bar witn 40 symbols length (default) and 70% progress
 
   local percent && percent=$1
   local visual_length && visual_length=${2:-40}
