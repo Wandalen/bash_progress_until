@@ -49,8 +49,8 @@ _w_progress_until()
   do
 
   if (( $period > $elapsed_time ))
-    then 
-      _w_sleep $($period - $elapsed_time)
+  then 
+  _w_sleep $($period - $elapsed_time)
   fi
     # qqq2 : make argument $period proper
   # qqq2 : should return nonzero code if fail as well as print stdderr
