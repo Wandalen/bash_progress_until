@@ -21,8 +21,8 @@ _w_progress_until()
   ## Sample
   # _w_progress_until 30 0.25 ssh server1
   #
-  # Function `_w_progress_until` gets the command, runs it and drows the bar of work progress for command if the command returns an error (with code not equal to zero).
-  # If command works right (with code equal to zero), then function no any bar draws. The function uses another functions: `w_sleep` and `w_progress`.
+  # Function `_w_progress_until` gets the command, runs it and drows the bar of work progress for command if the command returns an error (with code doesn't equal to zero).
+  # If command works right (with code equals to zero), then function no any bar draws. The function uses another functions: `w_sleep` and `w_progress`.
   # The function also gets the argument `timeout` that sets how many time function will trying to do the command. 
   # Another one argument `period` sets the time interval by which function will run the command again.
   # 
@@ -94,12 +94,12 @@ then
 fi
 
 # Test cases:
-#1. Check, how the command in argument running ОК (with code equal to zero). For this give the command that must ensuring work, for example, ls. Need for command check that successfully worked.
-#2. Перевіряємо, якщо команда в аргументі виконується з помилкою (з кодом, відмінним від нуля) і не може виконатись потім. Наприклад, ls /11, де /11 - гарантована відсутній каталог. Потрібен для перевірки команди, яка весь час дає помилку. 
-#3. Перевіряємо, якщо команда в аргументі виконується спочатку з помилкою (з кодом, відмінним від нуля) але потім виконується ОК (з кодом 0). Наприклад, ls /11, де /11 - спочатку відсутній каталог, але потім робимо його. Потрібен для перевірки команди, яка спочатку дає помилку, а потім успішно відпрацювує.
-#4. Виконуємо тест-кейс 3 з різними значеннями timeout та часом створення нового каталога: 
-#4.1. Робимо тест-кейс 3, але час створення каталога перевищує timeout. Потрібен для перевірки поведінки функції, коли команда спочатку дає помилку, а потім успішно відпрацювує, але час усунення проблеми перевищує timeout.
-#4.2. Робимо тест-кейс 3, але час створення каталога менше за timeout. Потрібен для перевірки поведінки функції, коли команда спочатку дає помилку, а потім успішно відпрацювує і час усунення проблеми не перевищує timeout.
+#1. Check, how the command in argument running ОК (with code equals to zero). For this give the command that must ensuring work, for example, ls. Need for command check that successfully worked.
+#2. Check, if the command in argument running with error (with code doesn't equal to zero) and can not execute later. For example, `ls /11`, where `/11` is guarantee absent directory. Need for command check that all the time gives an error. 
+#3. Check, if the command in argument running at first with rror (with code doesn't equal to zero) and потім running ОК (with code equals to zero). For example, `ls /11`, where `/11` is absent directory at first but then it is created . Need for command check that at first gives an error and then is working out OK.
+#4. Perform test case 3 with different values of `timeout` and new directory creation time: 
+#4.1. Perform test case 3, but time for directory creation higher than `timeout`. Need for function behavior check, when command at first gives an error and then is working out OK, but problem removal time exceeds `timeout`.
+#4.2. Perform test case 3, but time for directory creation less than `timeout`. Need for function behavior check, when command at first gives an error and then is working out OK and problem removal time does not exceeds `timeout`.
 #
 #
 #
