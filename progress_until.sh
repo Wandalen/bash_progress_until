@@ -57,13 +57,17 @@ _w_progress_until()
   _w_progress $(( 100 * $elapsed_time / $timeout ))
 
   # eval "$@"
-  output=$( eval "$@" 2>/dev/null )
+  output=$( eval "$@" 2>output.txt )
   err=$?
 
   done
 
+cat output.txt
+
   _w_progress 100
   printf "%s\n" "$output"
+
+rm output.txt
 
 }
 
