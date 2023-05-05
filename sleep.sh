@@ -19,17 +19,17 @@ _w_sleep()
   # _w_sleep 0.2   #  pause for 0.2 seconds
   # _w_sleep 3.5   #  pause
   #
-  # Функція _w_sleep вводить обцислювальний процес або код, з якого вона викликана, в стан сну на задану кількість секунд.
-  # Може використатись, якщо потрібно "заморозити" виконання коду на який-небудь час.
-  # Функція приймає один аргумент 'timeout' в форматі float, який задає кількість секунд для сну.
-  # Для засинання використовуєтья вбудована команда 'read'. На відміну від команди 'sleep', команда 'read' працює бистріше, так як вона вбудована в оболонку.
+  # Function `_w_sleep` enter computer process or running code, from which it run, in sleep state for specified number of seconds.
+  # Can use if it is need "freeze" code running for any time.
+  # Function gets one argument `timeout` at float format that set number of seconds for sleep.
+  # Foe sleeping used build-in command `read`. Unlike `sleep` command, `read` command work more faster becouse it is build-in to the shell.
   # 
-  # Аргументи:
-  # timeout - задає час для сну в секундах, в форматі float
+  # Arguments:
+  # timeout - sets time for sleeping in seconds in float format
   #
-  # Приклади використання функції _w_sleep :
-  # _w_sleep 0.2   #  вводить код в стан сну на 0.2 секунди
-  # _w_sleep 3.5   #  вводить код в стан сну на 3.5 секунди
+  # Examples usage function `_w_sleep` :
+  # _w_sleep 0.2   #  enter code in sleep state for 0.2 seconds
+  # _w_sleep 3.5   #  enter code in sleep state for 3.5 seconds
 
   read -rt "$1" <> <(:) || :
 
