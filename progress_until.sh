@@ -65,8 +65,11 @@ _w_progress_until()
   while (( $err != 0 && $elapsed_time < $timeout ))
   do
 
-  _w_sleep $period
-  # qqq2 : make argument $period proper
+  if (( $period > $elapsed_time ))
+  then 
+  _w_sleep $($period - $elapsed_time)
+  fi
+    # qqq2 : make argument $period proper
   # qqq2 : should return nonzero code if fail as well as print stdderr
 
   now_time=$( date +%s )
