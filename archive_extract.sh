@@ -37,10 +37,10 @@ _w_archive_extract()
     *.Z)         uncompress $1    ;;
     *.7z)        7z x $1          ;;
     *.ace)       unace x $1       ;;
-    *)           _w_err_throw <<< "'$1' cannot be extracted with _w_archive_extract" ;;
+    *)           echo "'$1' cannot be extracted with _w_archive_extract" ;;
   esac
   else
-  _w_err_throw <<< "'$1' is not a valid file"
+  echo "'$1' is not a valid file"
   fi
 
   printf '%s\n' "$name"
