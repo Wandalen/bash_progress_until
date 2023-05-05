@@ -22,19 +22,19 @@ _w_progress()
   # _w_progress 30 70   # draw bar witn 70 symbols length and 30% progress
   # _w_progress 70      # draw bar witn 40 symbols length (default) and 70% progress
   #
-  # Функція _w_progress вирісовує смугу прогресу. Може використовуватись неодноразово, для анімації прогресу виконання коду.
-  # Для анімації функція приймає два аргумента: percent (відсоток прогреса) та visual_length (довжина смуги прогреса), 
-  # далі розраховує, скільки символів треба позначити як "виконано" і скильки символіа треба позначити як "решта".
-  # Якщо відсоток прогресу дорівнюється 100, то полоса прогресу сама затирається.
+  # Function `_w_progress` draws the bar of work progress. Can use  multiple times for animation of code execution progress.
+  # For animation function gets two arguments: `percent` (progress persant) and `visual_length` (progress bar length), 
+  # then calculate, how many symbols need indicate as `done` and how many symbols need indicate as ' remains'.
+  # If progress persant equal to 100 then progress bar is self-overwritten.
   #
-  # Аргументи:
-  # percent - прогрес в відсотках. Якщо percent > 100, то функцыя встановлює percent=100. А якщо percent < 0, функцыя встановлює percent=0
-  # visual_length - довжина смуги в кількості символів. Це не обов'язковій аргумент. Якщо він вітсутній, то visual_length = 40 
+  # Arguments:
+  # `percent` - progress in persants. If `percent` > 100, then function sets percent=100. And if percent < 0, then function sets percent=0
+  # visual_length - bar length in symbols amount. This is not required argument. If it is absent then `visual_length` = 40 
   #
-  # Приклади використання функції _w_sleep :
-  # _w_progress 50 30   # вирісовує смугу довжиною 30 символів і прогресом 50 відсотків (15 символів позначає як виконано, а 15 символів - як решта)
-  # _w_progress 30 70   # вирісовує смугу довжиною 70 символів і прогресом 30 відсотків (21 символ позначає як виконано, а 49 символів - як решта)
-  # _w_progress 70      # вирісовує смугу довжиною 40 символів і прогресом 70 відсотків (28 символів позначає як виконано, а 12 символів - як решта)
+  # Examles of use fubction _w_sleep :
+  # _w_progress 50 30   # draws bar with 30 symbols in length and progress 50 persant (15 symbols sets as done and 15 symbols as remains)
+  # _w_progress 30 70   # draws bar with 70 symbols in length and progress 30 persant (21 symbols sets as done and 49 symbols as remains)
+  # _w_progress 70      # draws bar with 40 symbols in length and progress 70 persant (28 ymbols sets as done and 12 symbols as remains)
   #
 
   local percent && percent=$1
