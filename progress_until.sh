@@ -33,7 +33,7 @@ _w_progress_until()
 
   _w_progress 0
   # eval "$@"
-  output=$( eval "$@" 2>/dev/null )
+  output=$( eval "$@" 2>output.txt )
   err=$?
   if [[ $err -eq 0 ]]
   then
