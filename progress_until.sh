@@ -62,12 +62,8 @@ _w_progress_until()
 
   done
 
-cat output.txt
-
   _w_progress 100
   printf "%s\n" "$output"
-
-rm output.txt
 
 }
 
