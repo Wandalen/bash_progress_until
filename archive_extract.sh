@@ -18,7 +18,8 @@ _w_archive_extract()
   #
 
   local name && name="${1#%.*}"
-  target_dir=$(dirname $1)
+  target_dir=$( echo "${1%/*}" )
+
 
 
   if [ -f $1 ]
