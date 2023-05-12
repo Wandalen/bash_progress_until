@@ -25,15 +25,15 @@ _w_archive_extract()
   if [ -f $1 ]
   then
   case $1 in
-    *.tar.bz2)   tar xjf $1                         ;;
-    *.tar.gz)    tar xzf $1                         ;;
+    *.tar.bz2)   tar xjf $1 -C $target_dir          ;;
+    *.tar.gz)    tar xzf $1 -C $target_dir          ;;
     *.tar.xz)    tar xvf $1 -C $target_dir          ;;
     *.bz2)       bzip2 -d $1                        ;;
     *.rar)       unrar x $1 $target_dir             ;;
     *.gz)        gunzip $1                          ;;
     *.tar)       tar xf $1 -C $target_dir           ;;
-    *.tbz2)      tar xjf $1                         ;;
-    *.tgz)       tar xzf $1                         ;;
+    *.tbz2)      tar xjf $1 -C $target_dir          ;;
+    *.tgz)       tar xzf $1 -C $target_dir          ;;
     *.zip)       unzip $1 -d $target_dir            ;;
     *.Z)         uncompress -k $1                   ;;
     *.7z)        7z e -y $1 -o$target_dir           ;;
