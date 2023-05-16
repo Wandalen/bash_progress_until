@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $DIR_PATH/../routine/err_throw.sh
+#. $DIR_PATH/../routine/err_throw.sh
 
 _w_archive_extract()
 {
@@ -18,27 +18,30 @@ _w_archive_extract()
   #
 
   local name && name="${1#%.*}"
+  target_dir=$( echo "${1%/*}" )
+
+
 
   if [ -f $1 ]
   then
   case $1 in
-    *.tar.bz2)   tar xjf $1       ;;
-    *.tar.gz)    tar xzf $1       ;;
-    *.tar.xz)    tar xvf $1       ;;
-    *.bz2)       bzip2 -d $1      ;;
-    *.rar)       unrar2dir $1     ;;
-    *.gz)        gunzip $1        ;;
-    *.tar)       tar xf $1        ;;
-    *.tbz2)      tar xjf $1       ;;
-    *.tgz)       tar xzf $1       ;;
-    *.zip)       unzip $1 -qq     ;;
-    *.Z)         uncompress $1    ;;
-    *.7z)        7z x $1          ;;
-    *.ace)       unace x $1       ;;
-    *)           _w_err_throw <<< "'$1' cannot be extracted with _w_archive_extract" ;;
+    *.tar.bz2)   tar xjf $1 -C $target_dir          ;;
+    *.tar.gz)    tar xzf $1 -C $target_dir          ;;
+    *.tar.xz)    tar xvf $1 -C $target_dir          ;;
+    *.bz2)       bzip2 -dk $1 $target_dir           ;;
+    *.rar)       unrar x $1 $target_dir             ;;
+    *.gz)        gunzip -c $1 > ${name%.gz}         ;;
+    *.tar)       tar xvf $1 -C $target_dir           ;;
+    *.tbz2)      tar xjf $1 -C $target_dir          ;;
+    *.tgz)       tar xzf $1 -C $target_dir          ;;
+    *.zip)       unzip $1 -d $target_dir            ;;
+    *.Z)         uncompress -k $1                   ;;
+    *.7z)        7z e -y $1 -o$target_dir           ;;
+    *.ace)       unace x $1                         ;;
+    *)           echo "'$1' cannot be extracted with _w_archive_extract" ;;
   esac
   else
-  _w_err_throw <<< "'$1' is not a valid file"
+  echo "'$1' is not a valid file"
   fi
 
   printf '%s\n' "$name"
