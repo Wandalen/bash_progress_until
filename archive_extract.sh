@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $DIR_PATH/../routine/err_throw.sh
+#. $DIR_PATH/../routine/err_throw.sh
 
 _w_archive_extract()
 {
