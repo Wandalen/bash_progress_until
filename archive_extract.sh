@@ -31,7 +31,7 @@ _w_archive_extract()
     *.bz2)       bzip2 -dk $1 $target_dir           ;;
     *.rar)       unrar x $1 $target_dir             ;;
     *.gz)        gunzip -c $1 > ${name%.gz}         ;;
-    *.tar)       tar xf $1 -C $target_dir           ;;
+    *.tar)       tar xvf $1 -C $target_dir           ;;
     *.tbz2)      tar xjf $1 -C $target_dir          ;;
     *.tgz)       tar xzf $1 -C $target_dir          ;;
     *.zip)       unzip $1 -d $target_dir            ;;
